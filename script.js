@@ -4,9 +4,23 @@ function getComputerChoice() {
   return options[choice];
 }
 
-function playRound(playerSelection) {
+function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection[0]
     .toUpperCase()
     .concat(playerSelection.slice(1).toLowerCase());
-  return playerSelection;
+
+  let result;
+  //Lose case: Rock > Scissors > Paper
+  if (
+    (playerSelection === "Rock" && computerSelection === "Paper") ||
+    (playerSelection === "Paper" && computerSelection === "Scissors") ||
+    (playerSelection === "Scissors" && computerSelection === "Rocks")
+  ) {
+    result = `You Lose! ${computerSelection} beats ${playerSelection}`;
+  } else if (playerSelection === computerSelection) {
+    result = "Draw!";
+  } else {
+    result = `You Win! ${playerSelection} beats ${computerSelection}`;
+  }
+  return result;
 }
