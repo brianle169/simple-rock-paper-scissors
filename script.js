@@ -26,11 +26,21 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+function announceWinner(playerScore, computerScore) {
+  let winner = "";
+  winner =
+    playerScore > computerScore
+      ? "Player Wins!"
+      : playerScore === computerScore
+      ? "Both Draw!"
+      : "Computer Wins!";
+  console.log(winner);
+}
+
 function game() {
   let playerScore = 0,
-    computerScore = 0;
-  let winner = "Player Wins";
-  let i = 0;
+    computerScore = 0,
+    i = 0;
   while (i < 5) {
     const playerSelection = prompt("What is your move?");
     const computerSelection = getComputerChoice();
@@ -42,11 +52,5 @@ function game() {
     }
     i++;
   }
-  winner =
-    playerScore > computerScore
-      ? "Player Wins!"
-      : playerScore === computerScore
-      ? "Both Draw!"
-      : "Computer Wins!";
-  console.log(winner);
+  announceWinner();
 }
