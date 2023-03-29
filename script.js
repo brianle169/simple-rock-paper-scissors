@@ -16,33 +16,37 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "Scissors" && computerSelection === "Rock")
   ) {
     console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
-    return false;
+    return "Computer";
   } else if (playerSelection === computerSelection) {
     console.log("Draw!");
+    return "Draw";
   } else {
     console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
-    return true;
+    return "Player";
   }
 }
 
 function game() {
   let playerScore = 0,
     computerScore = 0;
+  let winner = "Player Wins";
   let i = 0;
   while (i < 5) {
     const playerSelection = prompt("What is your move?");
     const computerSelection = getComputerChoice();
-    let playerWon = playRound(playerSelection, computerSelection);
-    if (playerWon) {
+    let result = playRound(playerSelection, computerSelection);
+    if (result === "Player") {
       playerScore += 1;
-    } else if (!playerWon) {
-      computerScore += 1;
-    } else {
-      playerScore += 1;
+    } else if (result === "Computer") {
       computerScore += 1;
     }
     i++;
   }
-  let winner = playerScore > computerScore ? "Player Wins!" : "Computer Wins!";
+  winner =
+    playerScore > computerScore
+      ? "Player Wins!"
+      : playerScore === computerScore
+      ? "Both Draw!"
+      : "Computer Wins!";
   console.log(winner);
 }
