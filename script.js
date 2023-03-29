@@ -9,18 +9,40 @@ function playRound(playerSelection, computerSelection) {
     .toUpperCase()
     .concat(playerSelection.slice(1).toLowerCase());
 
-  let result;
   //Lose case: Rock > Scissors > Paper
   if (
     (playerSelection === "Rock" && computerSelection === "Paper") ||
     (playerSelection === "Paper" && computerSelection === "Scissors") ||
-    (playerSelection === "Scissors" && computerSelection === "Rocks")
+    (playerSelection === "Scissors" && computerSelection === "Rock")
   ) {
-    result = `You Lose! ${computerSelection} beats ${playerSelection}`;
+    console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+    return false;
   } else if (playerSelection === computerSelection) {
-    result = "Draw!";
+    console.log("Draw!");
   } else {
-    result = `You Win! ${playerSelection} beats ${computerSelection}`;
+    console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+    return true;
   }
-  return result;
+}
+
+function game() {
+  let playerScore = 0,
+    computerScore = 0;
+  let i = 0;
+  while (i < 5) {
+    const playerSelection = prompt("What is your move?");
+    const computerSelection = getComputerChoice();
+    let playerWon = playRound(playerSelection, computerSelection);
+    if (playerWon) {
+      playerScore += 1;
+    } else if (!playerWon) {
+      computerScore += 1;
+    } else {
+      playerScore += 1;
+      computerScore += 1;
+    }
+    i++;
+  }
+  let winner = playerScore > computerScore ? "Player Wins!" : "Computer Wins!";
+  console.log(winner);
 }
