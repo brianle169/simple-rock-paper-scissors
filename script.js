@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll(".options");
+const options = document.querySelectorAll(".options");
 const replayButton = document.querySelector("#replay");
 let playerSelection = "",
    computerSelection = "";
@@ -6,20 +6,26 @@ let playerScore = 0,
    computerScore = 0;
 let gameCounter = 0;
 const result = document.querySelector(".result");
+// const buttons = document.querySelectorAll("button");
 
-buttons.forEach((button) => {
-   button.addEventListener("click", (e) => {
-      if (++gameCounter <= 5) {
-         getPlayerChoice(e);
-         getComputerChoice();
-         playRound(playerSelection, computerSelection);
-      } else {
-         announceWinner(playerScore, computerScore);
-         return;
-      }
-   });
+//Options buttons event listener
+options.forEach((option) => {
+   option.addEventListener("click", gameStart);
 });
 
+function gameStart(e) {
+   if (++gameCounter <= 5) {
+      // e.target.classList.add(".isSelected");
+      getPlayerChoice(e);
+      getComputerChoice();
+      playRound(playerSelection, computerSelection);
+   } else {
+      announceWinner(playerScore, computerScore);
+      return;
+   }
+}
+
+//Replay button listener
 replayButton.addEventListener("click", replay);
 
 function replay() {

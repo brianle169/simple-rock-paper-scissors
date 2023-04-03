@@ -13,6 +13,16 @@ body {
    border: 5px solid rgb(226, 171, 31);
 }
 
+button {
+   transition: all 0.05s ease-in-out;
+}
+
+button:hover {
+   transform: scale(1.1);
+   border-color: #ffc600;
+   box-shadow: 0 0 1rem #ffc600;
+}
+
 .result {
    color: burlywood;
    font-size: 20px;
@@ -26,7 +36,7 @@ body {
    justify-content: space-between;
 }
 
-#buttons-container .options {
+.options {
    display: flex;
    width: 120px;
    height: 120px;
