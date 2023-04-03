@@ -1,25 +1,29 @@
 const buttons = document.querySelectorAll("button");
+let playerSelection = "",
+   computerSelection = "";
+const result = document.querySelector(".result");
+
 buttons.forEach((button) => {
-   button.addEventListener("click", respond);
+   button.addEventListener("click", (e) => {
+      getPlayerChoice(e);
+      getComputerChoice();
+      playRound(playerSelection, computerSelection);
+   });
 });
 
-function respond(e) {
-   console.log(e.target);
-   capture = true;
+function getPlayerChoice(e) {
+   playerSelection = e.target["textContent"];
+   return playerSelection;
 }
 
 function getComputerChoice() {
    let options = ["Rock", "Paper", "Scissors"];
    let choice = Math.floor(Math.random() * 3);
-   return options[choice];
+   computerSelection = options[choice];
+   return computerSelection;
 }
 
 function playRound(playerSelection, computerSelection) {
-   playerSelection = playerSelection[0]
-      .toUpperCase()
-      .concat(playerSelection.slice(1).toLowerCase());
-
-   //Lose case: Rock > Scissors > Paper
    if (
       (playerSelection === "Rock" && computerSelection === "Paper") ||
       (playerSelection === "Paper" && computerSelection === "Scissors") ||
