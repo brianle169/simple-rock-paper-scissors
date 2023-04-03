@@ -1,14 +1,10 @@
-* {
-   /* border: 2px solid red; */
-}
-
 body {
    height: 100vh;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
    display: flex;
    flex-direction: column;
    justify-content: center;
-   row-gap: 100px;
+   row-gap: 70px;
    align-items: center;
    border: 5px solid rgb(226, 171, 31);
 }
@@ -24,11 +20,18 @@ button:hover {
    box-shadow: 0 0 1rem #ffc600;
 }
 
-.result {
+.result,
+.score {
    color: burlywood;
    font-size: 20px;
    font-style: italic;
    font-weight: 900;
+}
+
+.score {
+   margin-top: -50px;
+   font-style: normal;
+   font-size: 35px;
 }
 
 #buttons-container {

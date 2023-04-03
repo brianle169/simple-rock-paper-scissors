@@ -6,7 +6,8 @@ let playerScore = 0,
    computerScore = 0;
 let gameCounter = 0;
 const result = document.querySelector(".result");
-// const buttons = document.querySelectorAll("button");
+const score = document.querySelector(".score");
+score.textContent = `🧑🏻 ${playerScore} - ${computerScore} 🤖`;
 
 //Options buttons event listener
 options.forEach((option) => {
@@ -15,7 +16,6 @@ options.forEach((option) => {
 
 function gameStart(e) {
    if (++gameCounter <= 5) {
-      // e.target.classList.add(".isSelected");
       getPlayerChoice(e);
       getComputerChoice();
       playRound(playerSelection, computerSelection);
@@ -57,11 +57,13 @@ function playRound(playerSelection, computerSelection) {
    ) {
       result.textContent = `Round ${gameCounter}: You Lose! ${computerSelection} beats ${playerSelection}`;
       computerScore += 1;
+      score.textContent = `🧑🏻 ${playerScore} - ${computerScore} 🤖`;
    } else if (playerSelection === computerSelection) {
       result.textContent = `Round ${gameCounter}: Draw!`;
    } else {
       result.textContent = `Round ${gameCounter}: You Win! ${playerSelection} beats ${computerSelection}`;
       playerScore += 1;
+      score.textContent = `🧑🏻 ${playerScore} - ${computerScore} 🤖`;
    }
 }
 
