@@ -1,4 +1,5 @@
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".options");
+const replayButton = document.querySelector("#replay");
 let playerSelection = "",
    computerSelection = "";
 let playerScore = 0,
@@ -19,6 +20,17 @@ buttons.forEach((button) => {
       }
    });
 });
+
+replayButton.addEventListener("click", replay);
+
+function replay() {
+   playerSelection = "";
+   computerSelection = "";
+   computerScore = 0;
+   playerScore = 0;
+   gameCounter = 0;
+   result.textContent = "-------------------------";
+}
 
 function getPlayerChoice(e) {
    playerSelection = e.target["textContent"];
