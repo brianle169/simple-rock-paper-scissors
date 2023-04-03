@@ -1,13 +1,22 @@
 const buttons = document.querySelectorAll("button");
 let playerSelection = "",
    computerSelection = "";
+let playerScore = 0,
+   computerScore = 0;
+let gameCounter = 0;
 const result = document.querySelector(".result");
 
 buttons.forEach((button) => {
    button.addEventListener("click", (e) => {
-      getPlayerChoice(e);
-      getComputerChoice();
-      playRound(playerSelection, computerSelection);
+      if (gameCounter < 5) {
+         gameCounter++;
+         getPlayerChoice(e);
+         getComputerChoice();
+         playRound(playerSelection, computerSelection);
+      } else {
+         announceWinner(playerScore, computerScore);
+         return;
+      }
    });
 });
 
@@ -29,14 +38,13 @@ function playRound(playerSelection, computerSelection) {
       (playerSelection === "Paper" && computerSelection === "Scissors") ||
       (playerSelection === "Scissors" && computerSelection === "Rock")
    ) {
-      console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
-      return "Computer";
+      result.textContent = `Round ${gameCounter}: You Lose! ${computerSelection} beats ${playerSelection}`;
+      computerScore += 1;
    } else if (playerSelection === computerSelection) {
-      console.log("Draw!");
-      return "Draw";
+      result.textContent = `Round ${gameCounter}: Draw!`;
    } else {
-      console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
-      return "Player";
+      result.textContent = `Round ${gameCounter}: You Win! ${playerSelection} beats ${computerSelection}`;
+      playerScore += 1;
    }
 }
 
@@ -44,11 +52,11 @@ function announceWinner(playerScore, computerScore) {
    let winner = "";
    winner =
       playerScore > computerScore
-         ? "Player Wins!"
+         ? "Player Wins! Congratulations"
          : playerScore === computerScore
          ? "Both Draw!"
-         : "Computer Wins!";
-   console.log(winner);
+         : "Computer Wins! Better luck next time";
+   result.textContent = winner;
 }
 
 function game() {

@@ -30,6 +30,7 @@ body {
    display: flex;
    width: 120px;
    height: inherit;
+   border: 5px solid rgb(237, 237, 164);
    border-radius: 50%;
    align-items: center;
    justify-content: center;
