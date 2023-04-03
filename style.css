@@ -25,6 +25,7 @@ button:hover {
    color: burlywood;
    font-size: 25px;
    font-weight: 900;
+   text-align: center;
 }
 
 .score {
