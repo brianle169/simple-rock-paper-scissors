@@ -10,6 +10,7 @@ body {
    justify-content: center;
    row-gap: 100px;
    align-items: center;
+   border: 5px solid rgb(226, 171, 31);
 }
 
 .result {
@@ -21,7 +22,6 @@ body {
 
 #buttons-container {
    display: flex;
-   height: 120px;
    width: 500px;
    justify-content: space-between;
 }
@@ -29,7 +29,7 @@ body {
 #buttons-container .options {
    display: flex;
    width: 120px;
-   height: inherit;
+   height: 120px;
    border: 5px solid rgb(237, 237, 164);
    border-radius: 50%;
    align-items: center;

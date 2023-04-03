@@ -9,8 +9,7 @@ const result = document.querySelector(".result");
 
 buttons.forEach((button) => {
    button.addEventListener("click", (e) => {
-      if (gameCounter < 5) {
-         gameCounter++;
+      if (++gameCounter <= 5) {
          getPlayerChoice(e);
          getComputerChoice();
          playRound(playerSelection, computerSelection);
