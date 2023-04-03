@@ -70,21 +70,3 @@ function announceWinner(playerScore, computerScore) {
          : "Computer Wins! Better luck next time";
    result.textContent = winner;
 }
-
-function game() {
-   let playerScore = 0,
-      computerScore = 0,
-      i = 0;
-   while (i < 5) {
-      const playerSelection = prompt("What is your move?");
-      const computerSelection = getComputerChoice();
-      let result = playRound(playerSelection, computerSelection);
-      if (result === "Player") {
-         playerScore += 1;
-      } else if (result === "Computer") {
-         computerScore += 1;
-      }
-      i++;
-   }
-   announceWinner(playerScore, computerScore);
-}
