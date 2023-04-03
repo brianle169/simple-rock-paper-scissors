@@ -14,6 +14,7 @@ body {
 }
 
 button {
+   border: 5px solid rgb(237, 237, 164);
    transition: all 0.05s ease-in-out;
 }
 
@@ -40,7 +41,6 @@ button:hover {
    display: flex;
    width: 120px;
    height: 120px;
-   border: 5px solid rgb(237, 237, 164);
    border-radius: 50%;
    align-items: center;
    justify-content: center;
@@ -55,6 +55,5 @@ button:hover {
    font-size: 18px;
    font-weight: 900;
    background-color: indianred;
-   border: 5px solid rgb(255, 255, 155);
    border-radius: 15px;
 }
