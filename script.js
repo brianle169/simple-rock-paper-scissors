@@ -5,6 +5,7 @@ let playerSelection = "",
 let playerScore = 0,
    computerScore = 0;
 let gameCounter = 0;
+
 const result = document.querySelector(".result");
 const score = document.querySelector(".score");
 score.textContent = `🧑🏻 ${playerScore} - ${computerScore} 🤖`;
@@ -15,7 +16,8 @@ options.forEach((option) => {
 });
 
 function gameStart(e) {
-   if (++gameCounter <= 5) {
+   if (playerScore < 5 && computerScore < 5) {
+      gameCounter++;
       getPlayerChoice(e);
       getComputerChoice();
       playRound(playerSelection, computerSelection);
@@ -34,7 +36,7 @@ function replay() {
    computerScore = 0;
    playerScore = 0;
    gameCounter = 0;
-   result.textContent = "-------------------------";
+   result.textContent = "First to 5 wins!";
    score.textContent = `🧑🏻 ${playerScore} - ${computerScore} 🤖`;
 }
 
