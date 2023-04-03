@@ -23,8 +23,7 @@ button:hover {
 .result,
 .score {
    color: burlywood;
-   font-size: 20px;
-   font-style: italic;
+   font-size: 25px;
    font-weight: 900;
 }
 

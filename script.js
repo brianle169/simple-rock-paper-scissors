@@ -35,6 +35,7 @@ function replay() {
    playerScore = 0;
    gameCounter = 0;
    result.textContent = "-------------------------";
+   score.textContent = `🧑🏻 ${playerScore} - ${computerScore} 🤖`;
 }
 
 function getPlayerChoice(e) {
