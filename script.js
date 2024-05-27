@@ -27,6 +27,7 @@ function gameStart(e) {
 replayButton.addEventListener("click", replay);
 
 function replay() {
+  options.forEach((option) => (option.disabled = false));
   playerSelection = "";
   computerSelection = "";
   computerScore = 0;
@@ -68,6 +69,7 @@ function playRound(playerSelection, computerSelection) {
   // Check winner
   if (playerScore === 5 || computerScore === 5) {
     announceWinner(playerScore, computerScore);
+    options.forEach((option) => (option.disabled = true));
   }
 }
 
